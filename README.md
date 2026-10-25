@@ -1,152 +1,257 @@
-# 🛡️ AI-Assisted Cybersecurity Threat Modeling Tool
-
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![STRIDE](https://img.shields.io/badge/Framework-STRIDE-0078D4?style=for-the-badge)
-![MITRE](https://img.shields.io/badge/Intel-MITRE%20ATT%26CK-red?style=for-the-badge)
-![Tests](https://img.shields.io/badge/Tests-28%20Passing-brightgreen?style=for-the-badge&logo=pytest)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+# 🛡️ AI-Assisted Cybersecurity Threat Modeling Tool
 
-**An AI-powered, interactive cybersecurity threat modeling dashboard built with Python & Streamlit.**  
-Implements Microsoft's STRIDE framework with real-world threat intelligence from MITRE ATT&CK, NIST, CVE, and CERT-In.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=00FF41&center=true&vCenter=true&width=700&lines=AI-Powered+Threat+Modeling+Dashboard;STRIDE+%7C+MITRE+ATT%26CK+%7C+NIST+%7C+CVE+%7C+CERT-In;Built+with+Python+%26+Streamlit;100%25+Local+%7C+Zero+Telemetry+%7C+Privacy+First" alt="Typing SVG" />
 
-[Features](#-key-features) • [Architecture](#-project-architecture) • [Quick Start](#-quick-start) • [Screenshots](#-screenshots) • [Tests](#-automated-tests) • [Disclaimer](#-disclaimer)
+<br/>
+
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![STRIDE](https://img.shields.io/badge/Framework-STRIDE-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats)
+[![MITRE](https://img.shields.io/badge/Intel-MITRE%20ATT%26CK%C2%AE-CC0000?style=for-the-badge)](https://attack.mitre.org/)
+[![NIST](https://img.shields.io/badge/Controls-NIST%20CSF-003087?style=for-the-badge)](https://www.nist.gov/cyberframework)
+[![Tests](https://img.shields.io/badge/Tests-28%20Passing-00C851?style=for-the-badge&logo=pytest&logoColor=white)](tests/)
+[![License](https://img.shields.io/badge/License-MIT-F4D03F?style=for-the-badge)](LICENSE)
+[![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red?style=for-the-badge)](https://github.com/Sukhmnpreetkaur)
+
+<br/>
+
+> **An AI-powered, interactive cybersecurity threat modeling dashboard** that analyzes your system architecture and identifies real-world security threats using Microsoft's STRIDE framework, cross-referenced with live intelligence from MITRE ATT&CK®, CVE, CVSS, NIST CSF, and CERT-In — all running **100% locally** on your machine.
+
+<br/>
+
+[🚀 Quick Start](#-quick-start) &nbsp;•&nbsp;
+[✨ Features](#-features) &nbsp;•&nbsp;
+[🧠 How It Works](#-how-it-works) &nbsp;•&nbsp;
+[📸 Screenshots](#-screenshots) &nbsp;•&nbsp;
+[🌐 Threat Intel](#-threat-intelligence-coverage) &nbsp;•&nbsp;
+[🧪 Tests](#-automated-tests) &nbsp;•&nbsp;
+[👩‍💻 Author](#-author)
 
 </div>
 
 ---
 
-## 📌 About the Project
+## 💡 What Is This?
 
-This tool was developed as part of the **Sure Trust Cybersecurity Training Program** to demonstrate applied threat modeling techniques using industry-standard security frameworks.
+Traditional threat modeling is manual, time-consuming, and requires deep security expertise. This tool **automates** the process.
 
-It enables developers, architects, and security students to:
-- **Input** a real system's architecture, tech stack, and components
-- **Analyze** threats automatically using the STRIDE heuristic engine
-- **Cross-reference** findings with live CVE records, MITRE ATT&CK tactics, NIST CSF controls, and CERT-In advisories
-- **Export** structured CSV datasets and Markdown security assessment reports
+You describe your system — what services you use, what components you have, what your architecture looks like — and the AI engine:
 
-> **🔒 Privacy Guarantee:** This application runs **100% locally** on your machine. It requires no paid APIs, transmits zero telemetry, and performs no offensive attacks or network scanning of any kind.
+1. 🔍 **Identifies threats** across all 6 STRIDE categories
+2. 📊 **Scores each threat** using a 5×5 Risk Matrix (Likelihood × Impact)
+3. 🌐 **Maps threats to real CVEs**, MITRE ATT&CK tactics, NIST controls, and CERT-In advisories
+4. 🛠️ **Recommends mitigations** with specific, actionable steps
+5. 📥 **Exports reports** as CSV datasets or Markdown assessment documents
+
+> 🔒 **Privacy First:** Runs 100% locally. No internet connection needed. No data leaves your machine. No paid APIs required.
 
 ---
 
-## 🚀 Key Features
+## ✨ Features
 
-### 🧠 Core Intelligence
-| Feature | Description |
-| :--- | :--- |
-| **STRIDE Engine** | Heuristic detection across all 6 STRIDE categories (Spoofing, Tampering, Repudiation, Information Disclosure, DoS, Elevation of Privilege) |
-| **Real-World Threat Intel** | Cross-references 11+ technology stacks with live CVE history, CVSS severity scores, MITRE ATT&CK tactics, and CERT-In bulletins |
-| **5×5 Risk Matrix** | Calculates `Likelihood (1–5) × Impact (1–5)` and classifies findings as Low / Medium / High / Critical |
-| **Heuristic Context Scan** | Detects risk-amplifying keywords in system descriptions (`upload`, `ssn`, `payment`, `admin`, `unencrypted`) and dynamically adjusts threat severity |
+<table>
+<tr>
+<td width="50%">
+
+### 🧠 Intelligence Engine
+- **STRIDE Heuristic Engine** — Detects all 6 threat categories automatically
+- **Keyword Context Scan** — Identifies risk amplifiers like `ssn`, `payment`, `upload`, `admin`, `unencrypted`
+- **5×5 Risk Matrix** — Scores threats from 1–25 with qualitative tiers
+- **Real-World CVE Mapping** — Links threats to actual vulnerability records
+
+</td>
+<td width="50%">
 
 ### 🖥️ Dashboard & UX
-| Feature | Description |
-| :--- | :--- |
-| **Dark Theme UI** | Cybersecurity console-inspired interface with neon severity accents and real-time metric counters |
-| **Component Analysis** | Evaluates Web App, Database, API, Authentication, File Storage, and Network components |
-| **Interactive Filters** | Instantly filter the threat register by STRIDE category, risk level, or keyword search |
-| **Mitigation Cards** | Expandable detail cards with MITRE tactic IDs, CVSS scores, CWE references, and actionable fix recommendations |
-| **STRIDE Analytics** | Visual bar charts showing threat distribution across categories and severity tiers |
-| **Export Centre** | One-click download of structured CSV datasets and executive Markdown reports |
-| **Sample Scenario** | Pre-loaded university portal demo for instant exploration |
+- **Dark Cybersecurity Theme** — Console-inspired UI with neon severity accents
+- **Live Metric Counters** — Real-time Critical / High / Medium / Low counts
+- **Interactive Filters** — Filter by STRIDE category, risk level, or keyword
+- **Expandable Mitigation Cards** — Detailed fix recommendations per threat
+- **STRIDE Analytics Charts** — Visual distribution of threat categories
 
-### 🌐 Threat Intelligence Coverage
-| Source | Data Provided |
-| :--- | :--- |
-| **MITRE ATT&CK®** | Active attack tactic IDs (e.g. T1190, T1611) mapped per technology |
-| **CWE (MITRE)** | Weakness IDs (e.g. CWE-89 SQL Injection, CWE-22 Path Traversal) |
-| **CVSS** | Maximum historical severity score and vulnerability profile per service |
-| **NIST CSF & SP 800-53** | Identify, Protect, and Detect controls prescribed per component |
-| **CERT-In / CISA** | Real advisory bulletin references (CIVN/CIAD) and ransomware targeting history |
-| **CVE Database** | Historical vulnerability counts and exploit severity for PostgreSQL, Docker, Redis, Nginx, Apache, AWS S3, Stripe, Kubernetes, JWT, OpenSSL, MySQL |
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🌐 Threat Intelligence
+- **MITRE ATT&CK®** — Tactic IDs (T1190, T1611, T1059…)
+- **CWE** — Weakness IDs (CWE-89, CWE-22, CWE-287…)
+- **CVSS Scores** — Maximum historical severity per technology
+- **CERT-In / CISA** — Real advisory bulletin references
+- **NIST CSF & SP 800-53** — Prescriptive security controls
+
+</td>
+<td width="50%">
+
+### 📤 Export & Reporting
+- **CSV Export** — Structured threat dataset for spreadsheets or SIEM
+- **Markdown Report** — Executive assessment report with disclaimer
+- **Sample Scenario** — Pre-loaded university portal demo
+- **28 Unit Tests** — Full pytest suite, all passing ✅
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 📂 Project Architecture
+## 🧠 How It Works
 
 ```
-AI-Threat-Modeling-Tool/
+┌─────────────────────────────────────────────────────────────────────┐
+│                        YOU (the user)                               │
+│  Enter: System Name · Description · Components · Tech Stack         │
+└──────────────────────────────┬──────────────────────────────────────┘
+                               │
+                    ┌──────────▼──────────┐
+                    │      app.py          │
+                    │  (Streamlit UI)      │
+                    └──────────┬──────────┘
+                               │
+                    ┌──────────▼──────────┐
+                    │  threat_engine.py    │  ◄── Applies STRIDE rules
+                    │  (Core AI Engine)    │  ◄── Runs keyword heuristics
+                    └──────────┬──────────┘
+                               │
+         ┌─────────────────────┼──────────────────────┐
+         │                     │                      │
+┌────────▼────────┐  ┌─────────▼────────┐  ┌─────────▼──────────────┐
+│  risk_scoring   │  │ report_generator │  │ real_world_threat_intel │
+│                 │  │                  │  │                         │
+│ Likelihood ×    │  │ CSV + Markdown   │  │ CVE · MITRE ATT&CK      │
+│ Impact Matrix   │  │ report export    │  │ NIST · CVSS · CERT-In   │
+└─────────────────┘  └──────────────────┘  └─────────────────────────┘
+         │                     │                      │
+         └─────────────────────▼──────────────────────┘
+                               │
+              ┌────────────────▼───────────────────┐
+              │         Results Dashboard           │
+              │  Threat Register · Risk Cards       │
+              │  Analytics Charts · Export Center   │
+              └────────────────────────────────────┘
+```
+
+---
+
+## 📂 Project Structure
+
+```
+ai-cybersecurity-threat-modeling-tool/
 │
-├── app.py                       # Streamlit dashboard — UI, layout, sidebar, tabs, export
-├── threat_engine.py             # STRIDE heuristic rule engine & component catalogue
-├── real_world_threat_intel.py   # CVE / CVSS / MITRE ATT&CK / NIST CSF / CERT-In data
-├── risk_scoring.py              # 5×5 Likelihood × Impact matrix & risk tier calculator
-├── report_generator.py          # CSV dataset & Markdown report formatter
-├── requirements.txt             # Python dependencies
-├── README.md                    # Project documentation
+├── 📄 app.py                       ← Streamlit dashboard (UI, layout, tabs, export)
+├── 🧠 threat_engine.py             ← STRIDE rules, heuristic scanner, component catalogue
+├── 🌐 real_world_threat_intel.py   ← CVE / CVSS / MITRE ATT&CK / NIST / CERT-In data
+├── 📊 risk_scoring.py              ← 5×5 Likelihood × Impact matrix & tier calculator
+├── 📝 report_generator.py          ← CSV dataset & Markdown report formatter
+├── 📦 requirements.txt             ← Python dependencies
+├── 📖 README.md                    ← You are here
 │
-└── tests/
-    └── test_threat_engine.py    # 28 automated pytest unit & integration tests
-```
-
-### Module Responsibilities
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                          app.py (UI Layer)                       │
-│          Sidebar Input → Analyze Button → Results Display        │
-└─────────────────────┬───────────────────────────────────────────┘
-                      │
-          ┌───────────▼───────────┐
-          │    threat_engine.py   │  ← Applies STRIDE rules per component
-          │  (Core STRIDE Engine) │  ← Runs heuristic keyword scan
-          └───────────┬───────────┘
-                      │
-     ┌────────────────┼─────────────────┐
-     │                │                 │
-┌────▼─────┐  ┌───────▼────────┐  ┌────▼──────────────────┐
-│risk_     │  │report_         │  │real_world_threat_      │
-│scoring.py│  │generator.py    │  │intel.py                │
-│          │  │                │  │                        │
-│Likelihood│  │CSV + Markdown  │  │CVE · MITRE · NIST      │
-│× Impact  │  │report export   │  │CVSS · CERT-In · CISA   │
-└──────────┘  └────────────────┘  └────────────────────────┘
+└── 🧪 tests/
+    └── test_threat_engine.py       ← 28 automated pytest unit & integration tests
 ```
 
 ---
 
 ## 🎯 The STRIDE Framework
 
-| Letter | Category | Security Property | Description | Key Mitigations |
-| :---: | :--- | :--- | :--- | :--- |
-| **S** | Spoofing | Authenticity | Impersonating a legitimate user or service | MFA, signed JWTs (RS256), secure session cookies |
-| **T** | Tampering | Integrity | Unauthorized modification of data or code | Parameterized queries, input validation, HMAC |
-| **R** | Repudiation | Non-repudiability | Denying performed actions due to missing logs | Immutable audit trails, SIEM logging |
-| **I** | Information Disclosure | Confidentiality | Exposing sensitive data to unauthorized parties | TLS 1.3, AES-256 at rest, strict CORS, PII masking |
-| **D** | Denial of Service | Availability | Exhausting resources to cause downtime | Rate limiting, WAF, CDN, connection quotas |
-| **E** | Elevation of Privilege | Authorization | Gaining unauthorized admin / root permissions | RBAC/ABAC, IDOR checks, least-privilege principle |
+STRIDE is Microsoft's industry-standard threat modeling methodology. Each letter represents a category of security threat:
+
+| | Category | Property Violated | What It Means | Key Defenses |
+|:---:|:---|:---:|:---|:---|
+| **S** | **S**poofing | Authenticity | Attacker impersonates a legitimate user or service | MFA, signed JWTs, secure session cookies |
+| **T** | **T**ampering | Integrity | Unauthorized modification of data or code in transit/at rest | Parameterized queries, HMAC, input validation |
+| **R** | **R**epudiation | Non-repudiability | User denies performing an action due to missing audit logs | Immutable audit trails, centralized SIEM logging |
+| **I** | **I**nformation Disclosure | Confidentiality | Sensitive data exposed to unauthorized parties | TLS 1.3, AES-256 at rest, CORS, PII masking |
+| **D** | **D**enial of Service | Availability | Resources exhausted to cause service downtime | Rate limiting, WAF, CDN, connection pool quotas |
+| **E** | **E**levation of Privilege | Authorization | Attacker gains admin/root access they shouldn't have | RBAC/ABAC, IDOR checks, least-privilege principle |
 
 ---
 
 ## 📊 Risk Scoring — 5×5 Matrix
 
-**Formula:** `Risk Score = Likelihood (1–5) × Impact (1–5)`
+```
+Risk Score  =  Likelihood (1–5)  ×  Impact (1–5)      Range: 1–25
+```
 
-| Score Range | Risk Level | Colour | Action Required |
-| :---: | :---: | :---: | :--- |
-| 1 – 4 | Low | 🟢 | Acceptable risk — apply standard security hygiene |
-| 5 – 9 | Medium | 🟡 | Schedule remediation in next development sprint |
-| 10 – 16 | High | 🟠 | Remediate before production release |
-| 17 – 25 | Critical | 🔴 | Immediate fix required — deployment blocker |
+| Score | Level | Indicator | Action |
+|:---:|:---:|:---:|:---|
+| 1–4 | Low | 🟢 | Acceptable — apply standard security hygiene |
+| 5–9 | Medium | 🟡 | Schedule remediation in next sprint |
+| 10–16 | High | 🟠 | Fix before production release |
+| 17–25 | Critical | 🔴 | **Immediate action required — deployment blocker** |
 
 ---
 
-## ⚡ Quick Start
+## 🌐 Threat Intelligence Coverage
+
+This tool cross-references your tech stack against curated intelligence from 6 major security frameworks:
+
+| Framework | What You Get |
+|:---|:---|
+| 🔴 **MITRE ATT&CK®** | Active attack tactic & technique IDs (e.g. T1190 Exploit Public-Facing App) |
+| 🟠 **CWE (MITRE)** | Common Weakness Enumeration IDs (e.g. CWE-89 SQL Injection) |
+| 🟡 **CVSS v3** | Maximum historical severity score per technology (0.0–10.0) |
+| 🔵 **NIST CSF & SP 800-53** | Identify / Protect / Detect controls mapped per component |
+| 🟣 **CERT-In / CISA** | Real Indian and US government advisory bulletin references |
+| ⚪ **CVE Database** | Historical vulnerability count and highest-severity CVE per service |
+
+**Technologies with full intel profiles:**
+`PostgreSQL` · `MySQL` · `Docker` · `Kubernetes` · `Redis` · `Nginx` · `Apache` · `AWS S3` · `JWT` · `OpenSSL` · `Stripe`
+
+---
+
+## 📸 Screenshots
+
+> Run the app with `streamlit run app.py` and open `http://localhost:8501`
+
+<br/>
+
+**🖥️ 1 — Main Dashboard**
+> Dark-themed cybersecurity UI with live Critical / High / Medium / Low metric counters and sidebar architecture input panel
+
+---
+
+**📋 2 — Threat Register**
+> Sortable and filterable data table showing every identified threat with STRIDE category, risk score (1–25), affected component, and mitigation summary
+
+---
+
+**🔍 3 — Mitigation Detail Cards**
+> Expandable accordion cards with full threat scenarios, MITRE ATT&CK tactic IDs, CVSS severity scores, CWE weakness references, and step-by-step remediation guidance
+
+---
+
+**📊 4 — STRIDE Analytics**
+> Bar charts visualising threat distribution across all 6 STRIDE categories and 4 risk severity tiers
+
+---
+
+**🌐 5 — Real-World Threat Intel Lookup**
+> Type any technology name (PostgreSQL, Docker, JWT, Nginx…) and instantly see its complete CVE history, CVSS score, MITRE tactics, NIST controls, and CERT-In advisories
+
+---
+
+**📥 6 — Export Centre**
+> One-click download for a structured `.csv` threat dataset and an executive `.md` security assessment report
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python **3.9** or higher
+- **Python 3.9+** (3.10 or 3.11 recommended)
 - `pip` package manager
-- Windows / macOS / Linux
+- Works on **Windows**, **macOS**, and **Linux**
 
 ### Installation
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/sure-trust/cyber-security-stu-96bb0b.git
-cd cyber-security-stu-96bb0b/Assignments/AI-Threat-Modeling-Tool
+git clone https://github.com/Sukhmnpreetkaur/ai-cybersecurity-threat-modeling-tool.git
+cd ai-cybersecurity-threat-modeling-tool
 
 # 2. Create a virtual environment
 python -m venv venv
@@ -160,132 +265,122 @@ source venv/bin/activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Launch the app
+# 4. Launch the app 🚀
 streamlit run app.py
 ```
 
-The app will open automatically at **http://localhost:8501**
+The app opens automatically at **[http://localhost:8501](http://localhost:8501)**
 
-### PowerShell Execution Policy (Windows only)
-If you see `cannot be loaded because running scripts is disabled`:
+### Windows — Execution Policy Fix
+If PowerShell blocks the venv activation script:
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ---
 
-## 🎓 Sample Walkthrough — College Portal Demo
+## 🎓 Try the Demo — College Portal Scenario
 
-The tool ships with a pre-loaded university portal scenario. Try it in 3 steps:
+The tool ships with a built-in university portal scenario so you can explore immediately without typing anything:
 
-1. Click **"🎓 Load College Sample"** in the sidebar
-2. Click **"🚀 Analyze Threats"**
-3. Explore the results:
+```
+1. Click  ➡  "🎓 Load College Sample"  in the sidebar
+2. Click  ➡  "🚀 Analyze Threats"
+3. Explore the results!
+```
 
-| What to Explore | Where to Find It |
-| :--- | :--- |
-| Critical & High threat counts | Top metric cards |
-| SQL Injection, PII Exposure, Session Fixation | Threat Register tab |
-| MITRE ATT&CK tactic IDs + CVSS scores | Mitigation Detail Cards |
-| STRIDE category distribution chart | Analytics tab |
-| Download CSV / Markdown report | Export Centre tab |
-
----
-
-## 📸 Screenshots
-
-> **To run the app:** `streamlit run app.py` → opens at `http://localhost:8501`
-
-### 1. Dashboard Overview
-The main dashboard showing the dark-themed cybersecurity UI with live metric counters for Critical, High, Medium, and Low threats, and the sidebar configuration panel.
-
-### 2. Threat Register
-A sortable and filterable data table displaying every identified threat with its STRIDE category, risk score (1–25), affected component, and recommended mitigation.
-
-### 3. Mitigation Detail Cards
-Expandable accordion cards showing the full threat scenario, MITRE ATT&CK tactic IDs, CVSS severity scores, CWE weakness references, and step-by-step fix recommendations.
-
-### 4. STRIDE Analytics
-Bar charts visualising the distribution of threats across all 6 STRIDE categories and 4 risk severity tiers.
-
-### 5. Real-World Threat Intel Tab
-The technology lookup panel — type any service name (e.g. PostgreSQL, Docker, Nginx, JWT) and instantly see its CVE history, maximum CVSS score, MITRE ATT&CK tactics, NIST controls, and CERT-In advisories.
-
-### 6. Export Centre
-One-click buttons to download a structured `.csv` threat dataset and an executive `.md` security assessment report with human review disclaimer.
+| Tab | What You'll See |
+|:---|:---|
+| **Threat Register** | SQL Injection, PII Exposure, Session Fixation, Malicious PDF Uploads |
+| **Mitigation Cards** | MITRE T1190, CWE-89, CVSS 9.8, step-by-step fixes |
+| **Analytics** | STRIDE category distribution charts |
+| **Export Centre** | Download CSV + Markdown report |
 
 ---
 
 ## 🧪 Automated Tests
 
-The project includes **28 automated unit and integration tests** covering all core modules.
+**28 unit and integration tests** covering all core modules — all passing ✅
 
 ```bash
-# Run all tests with verbose output
 pytest -v
 ```
 
 ```
-tests/test_threat_engine.py::TestRiskScoring::test_score_calculation          PASSED
-tests/test_threat_engine.py::TestRiskScoring::test_low_classification          PASSED
-tests/test_threat_engine.py::TestRiskScoring::test_medium_classification       PASSED
-tests/test_threat_engine.py::TestRiskScoring::test_high_classification         PASSED
-tests/test_threat_engine.py::TestRiskScoring::test_critical_classification     PASSED
-tests/test_threat_engine.py::TestThreatEngine::test_stride_coverage            PASSED
-tests/test_threat_engine.py::TestThreatEngine::test_heuristic_keywords         PASSED
+tests/test_threat_engine.py::TestRiskScoring::test_score_multiplication        PASSED
+tests/test_threat_engine.py::TestRiskScoring::test_low_tier_classification     PASSED
+tests/test_threat_engine.py::TestRiskScoring::test_medium_tier_classification  PASSED
+tests/test_threat_engine.py::TestRiskScoring::test_high_tier_classification    PASSED
+tests/test_threat_engine.py::TestRiskScoring::test_critical_tier_classification PASSED
+tests/test_threat_engine.py::TestThreatEngine::test_full_stride_coverage       PASSED
+tests/test_threat_engine.py::TestThreatEngine::test_heuristic_keyword_upload   PASSED
+tests/test_threat_engine.py::TestThreatEngine::test_heuristic_keyword_payment  PASSED
+tests/test_threat_engine.py::TestThreatEngine::test_input_validation_errors    PASSED
 tests/test_threat_engine.py::TestReportGenerator::test_csv_generation          PASSED
 tests/test_threat_engine.py::TestReportGenerator::test_markdown_disclaimer     PASSED
 ...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 28 passed in 0.42s ✅
 ```
 
-### Test Coverage by Module
-
-| Test Class | Module Tested | What Is Verified |
-| :--- | :--- | :--- |
+| Test Class | Module | Covers |
+|:---|:---|:---|
 | `TestRiskScoring` | `risk_scoring.py` | Score multiplication, bounds (1–25), all 4 tier classifications |
-| `TestThreatEngine` | `threat_engine.py` | Input validation, component rules, full STRIDE coverage, keyword heuristics |
-| `TestReportGenerator` | `report_generator.py` | CSV syntax validity, Markdown structure, human review disclaimer presence |
+| `TestThreatEngine` | `threat_engine.py` | STRIDE coverage, component rules, keyword heuristics, input validation |
+| `TestReportGenerator` | `report_generator.py` | CSV syntax, Markdown structure, human review disclaimer |
 
 ---
 
 ## 🛠️ Troubleshooting
 
 | Error | Fix |
-| :--- | :--- |
-| `Scripts cannot be loaded` (PowerShell) | `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` |
+|:---|:---|
+| `Scripts cannot be loaded` | `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` |
 | `'streamlit' is not recognized` | `python -m streamlit run app.py` |
-| `Port 8501 is already in use` | `streamlit run app.py --server.port 8502` |
-| `ModuleNotFoundError` | Ensure venv is active, then `pip install -r requirements.txt` |
-| `NameError: name 're' is not defined` | Ensure you're running the latest version of `app.py` from this repository |
+| `Port 8501 already in use` | `streamlit run app.py --server.port 8502` |
+| `ModuleNotFoundError` | Activate venv → `pip install -r requirements.txt` |
+| Any import error | Make sure all 5 `.py` files are in the same directory |
 
 ---
 
 ## ⚠️ Disclaimer
 
-> **This tool is for educational and defensive security engineering purposes only.**
+> **Educational & Defensive Use Only**
 >
-> - Results are generated by a deterministic heuristic rule engine. They do **not** guarantee 100% threat coverage and may not capture zero-day exploits or complex business logic vulnerabilities.
-> - All findings must be validated by qualified security professionals before being acted upon.
-> - This tool performs **no network scanning**, **no intrusive probing**, and **no offensive operations** of any kind.
-> - Real-world threat intelligence (CVE IDs, CVSS scores, MITRE tactic IDs) is curated for educational demonstration. Always verify against live databases at [nvd.nist.gov](https://nvd.nist.gov) and [attack.mitre.org](https://attack.mitre.org).
+> - This tool uses a deterministic heuristic rule engine. It does **not** guarantee detection of all threats, zero-days, or complex business logic flaws.
+> - All findings must be reviewed and validated by qualified security professionals before being acted upon.
+> - The tool performs **no network scanning, no intrusive probing, and no offensive operations** of any kind.
+> - CVE IDs, CVSS scores, and MITRE tactic IDs are curated for educational demonstration. Always verify against live sources:
+>   - [nvd.nist.gov](https://nvd.nist.gov) — CVE / CVSS
+>   - [attack.mitre.org](https://attack.mitre.org) — MITRE ATT&CK
+>   - [cert-in.org.in](https://www.cert-in.org.in) — CERT-In advisories
 
 ---
 
 ## 👩‍💻 Author
 
-**Sukhmanpreet Kaur**  
-Cybersecurity Student — Sure Trust Training Program  
-GitHub: [@Sukhmnpreetkaur](https://github.com/Sukhmnpreetkaur)
+<div align="center">
+
+**Sukhmanpreet Kaur**
+
+*Cybersecurity Enthusiast | Python Developer | Sure Trust Training Program*
+
+[![GitHub](https://img.shields.io/badge/GitHub-Sukhmnpreetkaur-181717?style=for-the-badge&logo=github)](https://github.com/Sukhmnpreetkaur)
+
+</div>
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — free to use, modify, and distribute for educational purposes.
+This project is licensed under the **MIT License** — free to use, modify, and distribute for educational and non-commercial purposes.
 
 ---
 
 <div align="center">
-Built with ❤️ for learning cybersecurity the right way — defensively, ethically, and thoroughly.
+
+**If this project helped you, please consider giving it a ⭐ star on GitHub!**
+
+*Built with ❤️ to make cybersecurity accessible, educational, and open source.*
+
 </div>
